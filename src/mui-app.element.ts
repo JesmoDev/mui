@@ -1,6 +1,6 @@
 import { css, html } from "lit";
 import { customElement } from "lit/decorators.js";
-import { MUIComponent } from "./components/mui-component";
+import { MUIComponent } from "./mui/mui-component";
 
 @customElement("mui-app")
 export class MuiAppElement extends MUIComponent {

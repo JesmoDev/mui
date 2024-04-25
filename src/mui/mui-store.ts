@@ -1,27 +1,10 @@
-export class Broadcaster<T> {
-  #listeners = new Set<(data: any) => void>();
-  #data: T;
+export class MUIStore {
+  public static instance: MUIStore = new MUIStore();
 
-  constructor(data: T) {
-    this.#data = data;
-  }
+  #api: MuiApi = new MuiApi();
 
-  subscribe(listener: (data: any) => void) {
-    this.#listeners.add(listener);
-    listener(this.#data);
-  }
-
-  unsubscribe(listener: (data: any) => void) {
-    this.#listeners.delete(listener);
-  }
-
-  get data() {
-    return this.#data;
-  }
-
-  set data(data: T) {
-    this.#data = data;
-    this.#listeners.forEach((listener) => listener(this.#data));
+  search(query: string) {
+    return this.#api.search(query);
   }
 }
 
@@ -153,14 +136,4 @@ class MUIData {
       armor: 8,
     },
   ];
-}
-
-export class MUIStore {
-  public static instance: MUIStore = new MUIStore();
-
-  #api: MuiApi = new MuiApi();
-
-  search(query: string) {
-    return this.#api.search(query);
-  }
 }
