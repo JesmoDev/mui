@@ -1,4 +1,4 @@
-export class Broadcaster<T> {
+export class MUIBroadcaster<T> {
   #listeners = new Set<(data: any) => void>();
   #data: T;
 

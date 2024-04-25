@@ -1,14 +1,14 @@
 export class MUIStore {
   public static instance: MUIStore = new MUIStore();
 
-  #api: MuiApi = new MuiApi();
+  #api: MUIApi = new MUIApi();
 
   search(query: string) {
     return this.#api.search(query);
   }
 }
 
-class MuiApi {
+class MUIApi {
   search(query: string) {
     return MUIData.items.filter((item) => {
       return item.name.toLowerCase().includes(query.toLowerCase()) || item.description.toLowerCase().includes(query.toLowerCase());
